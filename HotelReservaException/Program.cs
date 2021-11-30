@@ -1,7 +1,6 @@
 ﻿using System;
-using System;
-using ReservaHotelException.Entities;
-namespace ReservaHotelException
+using HotelReservaException.Exceptions;
+using HotelReservaException.Entities;
 
 namespace HotelReservaException
 {
@@ -9,27 +8,17 @@ namespace HotelReservaException
     {
         static void Main(string[] args)
         {
-            Console.Write("Digite o numero do Quarto:  ");
-            int quarto = int.Parse(Console.ReadLine());
-
-            Console.Write("Digite o data de Entrada (dd/MM/yyyy) ");
-            DateTime dataE = DateTime.Parse(Console.ReadLine());
-
-            Console.Write("Digite o data de Saida (dd/MM/yyyy) ");
-            DateTime dataS = DateTime.Parse(Console.ReadLine());
-
-            if (dataE < DateTime.Now)
+            try
             {
-                Console.WriteLine("Erro na reserva. Entrada não pode ser inferior a data de hoje !");
+                Console.Write("Digite o numero do Quarto:  ");
+                int quarto = int.Parse(Console.ReadLine());
 
-            }
-            else if (dataE > dataS)
-            {
-                Console.WriteLine("Erro na reserva. Saida não pode ser inferior a data de Entrada !");
+                Console.Write("Digite o data de Entrada (dd/MM/yyyy) ");
+                DateTime dataE = DateTime.Parse(Console.ReadLine());
 
-            }
-            else
-            {
+                Console.Write("Digite o data de Saida (dd/MM/yyyy) ");
+                DateTime dataS = DateTime.Parse(Console.ReadLine());
+
 
                 Reserva reserva = new Reserva(quarto, dataE, dataS);
                 Console.WriteLine("Reserva: " + reserva);
@@ -45,32 +34,28 @@ namespace HotelReservaException
                 Console.Write("Digite o data de Saida (dd/MM/yyyy) ");
                 dataS = DateTime.Parse(Console.ReadLine());
 
-                DateTime hoje = DateTime.Now;
+                reserva.updateReserva(dataE, dataS);
 
-                if (dataE < hoje || dataS < hoje)
-                {
-                    Console.WriteLine("Erro na reserva: Datas foram do padrão");
-                }
-                else if (dataE > dataS || dataS < dataE)
-                {
-                    Console.WriteLine("Erro na reserva. Saida não pode ser inferior a data de Entrada !");
-
-                }
-                else
-                {
-
-                    reserva.updateReserva(dataE, dataS);
-
-                    Console.WriteLine("Nova reserva: " + reserva);
-                }
-
-
-
+                Console.WriteLine("Nova reserva: " + reserva);
             }
-
-
+            catch (DomainException e)
+            {
+                Console.WriteLine("Erro na reserva: " + e.Message);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Erro no formato: " + e.Message);
+            }
 
 
         }
     }
+
+
 }
+
+
+
+
+
+

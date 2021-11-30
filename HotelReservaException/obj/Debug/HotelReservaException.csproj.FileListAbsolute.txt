@@ -1,0 +1,7 @@
+D:\wp_VS\HotelReservaException\HotelReservaException\obj\Debug\HotelReservaException.csproj.AssemblyReference.cache
+D:\wp_VS\HotelReservaException\HotelReservaException\obj\Debug\HotelReservaException.csproj.CoreCompileInputs.cache
+D:\wp_VS\HotelReservaException\HotelReservaException\bin\Debug\HotelReservaException.exe.config
+D:\wp_VS\HotelReservaException\HotelReservaException\bin\Debug\HotelReservaException.exe
+D:\wp_VS\HotelReservaException\HotelReservaException\bin\Debug\HotelReservaException.pdb
+D:\wp_VS\HotelReservaException\HotelReservaException\obj\Debug\HotelReservaException.exe
+D:\wp_VS\HotelReservaException\HotelReservaException\obj\Debug\HotelReservaException.pdb
